@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div th:insert="~{/header.html}"></div>
+
+<ul th:each="ad, n : ${ads}">
+    <li>
+        <div>
+            <p th:text= "${ad.type}"></p>
+            <p th:text= "${ad.price}"></p>
+            <p th:text= "${users[n.index].username}"></p>
+            <img th:src="${images[n.index].path}">
+            <a th:href="@{/advertisement(id=${ad.id})}">Подробнее</a>
+        </div>
+    </li>
+</ul>
+</body>
+</html>

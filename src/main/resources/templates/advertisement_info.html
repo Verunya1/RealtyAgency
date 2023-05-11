@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:insert="~{/header.html}"></div>
+<h1>Подробная информация об объявлении </h1>
+<div>
+    <img th:src="@{${images[0].path}}">
+    <img th:src="${images[1].path}">
+    <img th:src="${images[2].path}">
+
+<p th:text="${advertisement.type}"></p>
+<p th:text="${advertisement.description}"></p>
+<p th:text="${advertisement.price}"></p>
+<p th:text="${owner.username}"></p>
+<p th:text="${owner.phone}"></p>
+</div>
+<div sec:authorize="isAuthenticated()">
+    <a th:href =  "@{/advertisement/buy(id=${advertisement.id})}"> Купить</a>
+</div>
+<div sec:authorize="hasAuthority('ADMIN')">
+    <a th:href =  "@{/advertisement/delete(id=${advertisement.id})}"> Удалить</a>
+</div>
+</main>
+</body>
+</html>
