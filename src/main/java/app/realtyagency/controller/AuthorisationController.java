@@ -14,8 +14,6 @@ import org.springframework.web.bind.annotation.*;
 public class AuthorisationController {
     private final UserService userService;
 
-
-
     @GetMapping("register")
     public String register(Model model) {
         model.addAttribute("user", new User());
